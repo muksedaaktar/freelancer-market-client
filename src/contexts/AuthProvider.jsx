@@ -1,11 +1,11 @@
 // import React from 'react';
 
-const AllJobs = () => {
+const AuthProvider = () => {
     return (
         <div>
-            jobs
+            
         </div>
     );
 };
 
-export default AllJobs;
+export default AuthProvider;
