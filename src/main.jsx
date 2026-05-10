@@ -2,12 +2,19 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
+
 
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import RootLayout from './layouts/RootLayout';
 import Home from './components/Home/Home';
 import AllJobs from './components/AllJobs/AllJobs';
+import AuthProvider from './contexts/AuthProvider';
+import Register from './components/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +30,11 @@ const router = createBrowserRouter([
       {
         path : 'allJobs',
         Component : AllJobs
+      },
+
+      {
+        path : 'register',
+        Component : Register
       }
     ]
   },
@@ -30,6 +42,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />,
+    <AuthProvider>
+      <RouterProvider router={router} />
+      </AuthProvider>
   </StrictMode>,
 )
