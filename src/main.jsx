@@ -7,6 +7,9 @@ import "aos/dist/aos.css";
 
 AOS.init();
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
@@ -15,6 +18,7 @@ import Home from './components/Home/Home';
 import AllJobs from './components/AllJobs/AllJobs';
 import AuthProvider from './contexts/AuthProvider';
 import Register from './components/Register/Register';
+import MyJobs from './components/MyJobs/MyJobs';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +39,11 @@ const router = createBrowserRouter([
       {
         path : 'register',
         Component : Register
+      },
+
+      {
+        path : 'myJobs',
+        element : <MyJobs></MyJobs>
       }
     ]
   },
@@ -44,6 +53,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
       </AuthProvider>
   </StrictMode>,
 )
