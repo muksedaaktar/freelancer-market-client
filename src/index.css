@@ -2,9 +2,36 @@
 @plugin "daisyui";
 @import "tailwindcss";
 @plugin "daisyui";
+
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: blue;
-  --color-secondary: teal;
+
+  --color-primary: #ff006e;
+  --color-secondary: #ff6b4a;
+
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #ff006e, #ff6b4a);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #e6005c, #d94a2f);
+}
+
+
+.diplomata {
+  font-family: "Diplomata", serif;
+}
+
+
+body {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+
 }

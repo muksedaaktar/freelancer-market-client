@@ -4,10 +4,12 @@ import { AuthContext } from "../../contexts/AuthContexts";
 import { use, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
 
     const { signInWithGoogle, createUser } = use(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
 
@@ -48,18 +50,35 @@ const Register = () => {
         // Create User
 
         createUser(email, password)
-            .then(result => {
+            .then(async result => {
 
                 console.log(result.user);
 
-                toast.success("Account Created Successfuly🎉");
+                const newUser = {
+                    name,
+                    email,
+                    image: photo
+                };
+
+                // Save to backend
+                const res = await fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                });
+
+                const data = await res.json();
+                console.log("Saved user:", data);
+
+                toast.success("Account Created Successfully 🎉");
 
                 navigate('/');
+
             })
             .catch(error => {
-
                 console.log(error);
-
                 toast.error(error.message);
             });
     };
@@ -201,13 +220,29 @@ const Register = () => {
                                     </span>
                                 </label>
 
-                                <input
-                                    type="password"
-                                    name="password"
-                                    placeholder="Enter your password"
-                                    className="input input-bordered w-full"
-                                    required
-                                />
+                                <div className="relative">
+
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        name="password"
+                                        placeholder="Enter your password"
+                                        className="input input-bordered w-full"
+                                        required
+                                    />
+
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-4 top-4 text-gray-500"
+                                    >
+                                        {
+                                            showPassword
+                                                ? <FaEyeSlash size={18} />
+                                                : <FaEye size={18} />
+                                        }
+                                    </button>
+
+                                </div>
                             </div>
 
                             {/* Error Message */}
