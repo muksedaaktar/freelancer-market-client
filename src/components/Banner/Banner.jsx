@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 
 const Banner = () => {
   return (
@@ -48,6 +49,26 @@ const Banner = () => {
             freelancers connect securely. Find verified experts, manage tasks
             smoothly, and complete projects with confidence.
           </motion.p>
+
+          {/* Search Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="bg-white shadow-xl rounded-2xl p-2 flex items-center mb-8 max-w-xl"
+          >
+            <FiSearch className="text-2xl text-gray-400 ml-3" />
+
+            <input
+              type="text"
+              placeholder="Search freelancers, jobs, skills..."
+              className="w-full px-4 py-3 outline-none bg-transparent text-gray-700"
+            />
+
+            <button className="btn btn-primary rounded-xl px-6">
+              Search
+            </button>
+          </motion.div>
 
           {/* Stats */}
           <motion.div
