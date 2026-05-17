@@ -27,7 +27,7 @@ const AllJobs = () => {
         <div className="max-w-7xl mx-auto p-6">
 
             <h2 className="text-4xl font-bold text-center mb-10">
-                All Jobs {category && <span className="text-primary">({category})</span>}
+                <span className="text-primary">All</span> Jobs {category && <span className="text-primary">({category})</span>}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">

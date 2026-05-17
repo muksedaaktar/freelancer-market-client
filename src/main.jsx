@@ -22,21 +22,23 @@ import Login from './components/Login/Login';
 import JobDetails from './components/JobDetails/JobDetails';
 import AcceptedTasks from './components/AcceptedTask/AcceptedTasks';
 import AllJobs from './components/AllJobs/AllJobs';
+import AddJob from './components/AddJob/AddJob';
+import UpdateJob from './components/UpdateJob/UpdateJob';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component : RootLayout,
-    children : [
+    Component: RootLayout,
+    children: [
       {
-        index : true,
-        Component : Home
+        index: true,
+        Component: Home
 
       },
 
       {
-        path : 'allJobs',
-        Component : AllJobs
+        path: 'allJobs',
+        Component: AllJobs
       },
 
       {
@@ -45,28 +47,38 @@ const router = createBrowserRouter([
       },
 
       {
-        path : 'register',
-        Component : Register
+        path: 'register',
+        Component: Register
       },
 
       {
-        path : 'login',
-        Component : Login
+        path: 'login',
+        Component: Login
       },
 
       {
-        path : 'myJobs',
-        element : <MyJobs></MyJobs>
+        path: 'addjob',
+        element: <AddJob></AddJob>
       },
 
       {
-        path : 'acceptedTask',
-        element : <AcceptedTasks></AcceptedTasks>
+        path: 'myJobs',
+        element: <MyJobs></MyJobs>
       },
 
       {
-        path : 'jobDetails/:id',
-        Component : JobDetails
+        path: 'acceptedTask',
+        element: <AcceptedTasks></AcceptedTasks>
+      },
+
+      {
+        path: "/updateJob/:id",
+        Component: UpdateJob
+      },
+
+      {
+        path: 'jobDetails/:id',
+        Component: JobDetails
 
       }
     ]
@@ -78,6 +90,6 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
       <ToastContainer />
-      </AuthProvider>
+    </AuthProvider>
   </StrictMode>,
 )

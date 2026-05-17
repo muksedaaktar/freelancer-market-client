@@ -1,9 +1,7 @@
-import { use } from "react";
+
 import Job from "../Job/Job";
 
-const LatestJobs = ({ LatestJobsPromise }) => {
-    const jobs = use(LatestJobsPromise);
-    console.log(jobs);
+const LatestJobs = ({ jobs = [] }) => {
 
     return (
         <div className="space-y-6 px-15">
@@ -18,7 +16,8 @@ const LatestJobs = ({ LatestJobsPromise }) => {
 
             {/* Jobs Grid */}
             <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
-                {jobs.map((job) => (
+
+                {jobs.map(job => (
                     <Job key={job._id} job={job} />
                 ))}
             </div>
