@@ -1,7 +1,32 @@
-
+import { useEffect, useState } from "react";
 import Job from "../Job/Job";
 
-const LatestJobs = ({ jobs = [] }) => {
+const LatestJobs = () => {
+
+    const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/latest-jobs")
+            .then(res => res.json())
+            .then(data => {
+                setJobs(data);
+                setLoading(false);
+            })
+            .catch(() => setLoading(false));
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex flex-col justify-center items-center">
+                <span className="loading loading-spinner loading-lg text-primary"></span>
+
+                <p className="mt-3 text-primary font-medium animate-pulse">
+                    Loading latest jobs...
+                </p>
+            </div>
+        );
+    }
 
     return (
         <div className="space-y-6 px-15">
@@ -20,6 +45,7 @@ const LatestJobs = ({ jobs = [] }) => {
                 {jobs.map(job => (
                     <Job key={job._id} job={job} />
                 ))}
+
             </div>
 
         </div>
