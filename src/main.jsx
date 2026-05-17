@@ -20,6 +20,8 @@ import AuthProvider from './contexts/AuthProvider';
 import Register from './components/Register/Register';
 import MyJobs from './components/MyJobs/MyJobs';
 import Login from './components/Login/Login';
+import JobDetails from './components/JobDetails/JobDetails';
+import AcceptedTasks from './components/AcceptedTask/AcceptedTasks';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,17 @@ const router = createBrowserRouter([
       {
         path : 'myJobs',
         element : <MyJobs></MyJobs>
+      },
+
+      {
+        path : 'acceptedTask',
+        element : <AcceptedTasks></AcceptedTasks>
+      },
+
+      {
+        path : 'jobDetails/:id',
+        Component : JobDetails
+
       }
     ]
   },

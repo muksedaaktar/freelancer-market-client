@@ -11,7 +11,7 @@ const Job = ({job}) => {
         <div className="bg-base-100 shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-base-200 p-6">
 
       {/* Image */}
-      <figure className="h-48 overflow-hidden">
+      <figure className="h-48 overflow-hidden rounded-xl">
         <img
           src={coverImage}
           alt={title}
@@ -39,7 +39,7 @@ const Job = ({job}) => {
 
         {/* Button */}
         <div className="pt-3">
-          <Link to={`/jobs/${_id}`}>
+          <Link to={`/jobDetails/${_id}`}>
             <button className="btn btn-primary btn-sm w-full">
               View Details
             </button>

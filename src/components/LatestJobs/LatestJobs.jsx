@@ -6,7 +6,7 @@ const LatestJobs = ({ LatestJobsPromise }) => {
     console.log(jobs);
 
     return (
-        <div className="space-y-6 px-25">
+        <div className="space-y-6 px-15">
 
             {/* Section Heading */}
             <div>

@@ -5,7 +5,7 @@ import Banner from "../Banner/Banner";
 import LatestJobs from "../LatestJobs/LatestJobs";
 
 const LatestJobsPromise = fetch('http://localhost:3000/latest-jobs').
-then(res => res.json())
+then(res => res.json());
 
 const Home = () => {
     return (
