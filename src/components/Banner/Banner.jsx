@@ -101,11 +101,11 @@ const Banner = () => {
               </button>
             </Link>
 
-            <Link to="/addJob">
+            {/* <Link to="/addJob">
               <button className="btn btn-outline btn-primary px-8 text-lg rounded-xl hover:scale-105 transition duration-300">
                 Create a Job
               </button>
-            </Link>
+            </Link> */}
           </motion.div>
         </motion.div>
       </div>

@@ -28,6 +28,7 @@ import AcceptedTasks from './components/AcceptedTask/AcceptedTasks';
 // Private Route
 import PrivateRoute from './routes/PrivateRoute';
 import AuthProvider from './contexts/AuthProvider';
+import NotFound from './components/NotFound/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,11 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />
+      },
+
+      {
+        path : '*',
+        element : <NotFound/>
       },
 
       // PRIVATE ROUTES

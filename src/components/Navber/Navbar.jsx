@@ -13,19 +13,81 @@ const Navbar = () => {
 
     const links = (
         <>
+
             <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                        `font-semibold text-[16px] transition duration-300 ${isActive
+                            ? "text-primary border-b-2 border-primary"
+                            : "hover:text-primary"
+                        }`
+                    }
+                >
+                    Home
+                </NavLink>
             </li>
 
             <li>
-                <NavLink to="/allJobs">All Jobs</NavLink>
+                <NavLink
+                    to="/allJobs"
+                    className={({ isActive }) =>
+                        `font-semibold text-[16px] transition duration-300 ${isActive
+                            ? "text-primary border-b-2 border-primary"
+                            : "hover:text-primary"
+                        }`
+                    }
+                >
+                    All Jobs
+                </NavLink>
             </li>
 
             {user && (
-                <li>
-                    <NavLink to="/myJobs">My Jobs</NavLink>
-                </li>
+                <>
+                    <li>
+                        <NavLink
+                            to="/addjob"
+                            className={({ isActive }) =>
+                                `font-semibold text-[16px] transition duration-300 ${isActive
+                                    ? "text-primary border-b-2 border-primary"
+                                    : "hover:text-primary"
+                                }`
+                            }
+                        >
+                            Add Job
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink
+                            to="/myJobs"
+                            className={({ isActive }) =>
+                                `font-semibold text-[16px] transition duration-300 ${isActive
+                                    ? "text-primary border-b-2 border-primary"
+                                    : "hover:text-primary"
+                                }`
+                            }
+                        >
+                            My Jobs
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink
+                            to="/acceptedTask"
+                            className={({ isActive }) =>
+                                `font-semibold text-[16px] transition duration-300 ${isActive
+                                    ? "text-primary border-b-2 border-primary"
+                                    : "hover:text-primary"
+                                }`
+                            }
+                        >
+                             Accepted Tasks
+                        </NavLink>
+                    </li>
+                </>
             )}
+
         </>
     );
 
