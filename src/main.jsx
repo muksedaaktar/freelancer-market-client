@@ -15,13 +15,13 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import RootLayout from './layouts/RootLayout';
 import Home from './components/Home/Home';
-import AllJobs from './components/AllJobs/AllJobs';
 import AuthProvider from './contexts/AuthProvider';
 import Register from './components/Register/Register';
 import MyJobs from './components/MyJobs/MyJobs';
 import Login from './components/Login/Login';
 import JobDetails from './components/JobDetails/JobDetails';
 import AcceptedTasks from './components/AcceptedTask/AcceptedTasks';
+import AllJobs from './components/AllJobs/AllJobs';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +37,11 @@ const router = createBrowserRouter([
       {
         path : 'allJobs',
         Component : AllJobs
+      },
+
+      {
+        path: 'allJobs/:id',
+        Component: JobDetails
       },
 
       {

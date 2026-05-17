@@ -12,7 +12,7 @@ const LatestJobs = ({ LatestJobsPromise }) => {
             <div>
                 <p className="text-5xl lg:text-6xl font-extrabold text-center my-16">
                     <span className="text-primary">Latest</span>{" "}
-                    <span className="text-base-content">Products</span>
+                    <span className="text-base-content">Jobs</span>
                 </p>
             </div>
 
