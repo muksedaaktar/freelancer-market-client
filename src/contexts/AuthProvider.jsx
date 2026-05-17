@@ -8,40 +8,40 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 const googleProvider = new GoogleAuthProvider();
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const createUser = (email, password)=>{
+    const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const signInUser = (email, password)=>{
+    const signInUser = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const signInWithGoogle = ()=>{
+    const signInWithGoogle = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
-    const signOutUser = ()=>{
+    const signOutUser = () => {
         setLoading(true);
         return signOut(auth);
     }
 
 
-    useEffect( ()=>{
-        const unsubscribe = onAuthStateChanged( auth, (cuttenUser)=>{
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (cuttenUser) => {
             setUser(cuttenUser)
             setLoading(false);
         })
 
-        return()=>{
-            unsubscribe
+        return () => {
+            unsubscribe();
         }
 
     }, [])
@@ -57,10 +57,9 @@ const AuthProvider = ({children}) => {
     }
 
     return (
-        <AuthContext value={authInfo}>
+        <AuthContext.Provider value={authInfo}>
             {children}
-            
-        </AuthContext>
+        </AuthContext.Provider>
     );
 };
 

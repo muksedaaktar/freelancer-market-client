@@ -39,7 +39,7 @@ const Job = ({job}) => {
 
         {/* Button */}
         <div className="pt-3">
-          <Link to={`/jobDetails/${_id}`}>
+          <Link to={`/allJobs/${_id}`}>
             <button className="btn btn-primary btn-sm w-full">
               View Details
             </button>

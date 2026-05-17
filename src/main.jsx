@@ -1,95 +1,107 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 AOS.init();
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+// Layout
 import RootLayout from './layouts/RootLayout';
+
+// Pages
 import Home from './components/Home/Home';
-import AuthProvider from './contexts/AuthProvider';
-import Register from './components/Register/Register';
-import MyJobs from './components/MyJobs/MyJobs';
-import Login from './components/Login/Login';
-import JobDetails from './components/JobDetails/JobDetails';
-import AcceptedTasks from './components/AcceptedTask/AcceptedTasks';
 import AllJobs from './components/AllJobs/AllJobs';
+import JobDetails from './components/JobDetails/JobDetails';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
+import MyJobs from './components/MyJobs/MyJobs';
 import AddJob from './components/AddJob/AddJob';
 import UpdateJob from './components/UpdateJob/UpdateJob';
+import AcceptedTasks from './components/AcceptedTask/AcceptedTasks';
+
+// Private Route
+import PrivateRoute from './routes/PrivateRoute';
+import AuthProvider from './contexts/AuthProvider';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: RootLayout,
+    element: <RootLayout />,
     children: [
+
+      // PUBLIC ROUTES
       {
         index: true,
-        Component: Home
-
+        element: <Home />
+      },
+      {
+        path: "allJobs",
+        element: <AllJobs />
+      },
+      {
+        path: "allJobs/:id",
+        element: <JobDetails />
+      },
+      {
+        path: "register",
+        element: <Register />
+      },
+      {
+        path: "login",
+        element: <Login />
       },
 
+      // PRIVATE ROUTES
       {
-        path: 'allJobs',
-        Component: AllJobs
+        path: "addjob",
+        element: (
+          <PrivateRoute>
+            <AddJob />
+          </PrivateRoute>
+        )
       },
-
       {
-        path: 'allJobs/:id',
-        Component: JobDetails
+        path: "myJobs",
+        element: (
+          <PrivateRoute>
+            <MyJobs />
+          </PrivateRoute>
+        )
       },
-
       {
-        path: 'register',
-        Component: Register
+        path: "acceptedTask",
+        element: (
+          <PrivateRoute>
+            <AcceptedTasks />
+          </PrivateRoute>
+        )
       },
-
       {
-        path: 'login',
-        Component: Login
-      },
-
-      {
-        path: 'addjob',
-        element: <AddJob></AddJob>
-      },
-
-      {
-        path: 'myJobs',
-        element: <MyJobs></MyJobs>
-      },
-
-      {
-        path: 'acceptedTask',
-        element: <AcceptedTasks></AcceptedTasks>
-      },
-
-      {
-        path: "/updateJob/:id",
-        Component: UpdateJob
-      },
-
-      {
-        path: 'jobDetails/:id',
-        Component: JobDetails
-
+        path: "updateJob/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateJob />
+          </PrivateRoute>
+        )
       }
+
     ]
-  },
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
     <AuthProvider>
       <RouterProvider router={router} />
       <ToastContainer />
     </AuthProvider>
-  </StrictMode>,
-)
+
+  </StrictMode>
+);
