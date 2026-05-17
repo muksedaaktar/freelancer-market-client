@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContexts";
 import logoImg from "../../assets/logo-f.avif";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 const Navbar = () => {
 
@@ -113,7 +114,7 @@ const Navbar = () => {
                     <span className="text-2xl font-bold">
                         <span className="text-primary">De</span>
                         <span className="text-primary">
-                            <span className="text-black">vH</span>ire
+                            <span className="text-purple-700">vH</span>ire
                         </span>
                     </span>
                 </div>
@@ -129,6 +130,7 @@ const Navbar = () => {
 
             {/* END */}
             <div className="navbar-end">
+                
 
                 {user ? (
                     <div className="flex items-center gap-3">
@@ -151,6 +153,7 @@ const Navbar = () => {
                         >
                             Logout
                         </button>
+                        <ThemeToggle></ThemeToggle>
 
                     </div>
                 ) : (

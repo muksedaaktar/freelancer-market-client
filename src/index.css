@@ -1,19 +1,32 @@
 @import "tailwindcss";
 @plugin "daisyui";
+/* @import "tailwindcss";
+@plugin "daisyui"; */
+
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* LIGHT THEME */
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
 
-  --color-primary: #ff006e;
-  --color-secondary: #ff6b4a;
+  --color-primary: #632EE3;
+  --color-secondary: #9F62F2;
+}
 
+/* DARK THEME */
+@plugin "daisyui/theme" {
+  name: "dark";
+
+  --color-primary: #8B5CF6;
+  --color-secondary: #A78BFA;
+  --base-100: #0F172A;
+  --base-content: #F8FAFC;
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #ff006e, #ff6b4a);
+  background: linear-gradient(90deg, #632EE3, #9F62F2);
   color: white;
   border: none;
 }

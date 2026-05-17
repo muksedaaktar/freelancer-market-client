@@ -30,6 +30,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import AuthProvider from './contexts/AuthProvider';
 import NotFound from './components/NotFound/NotFound';
 import MarketPlace from './components/MarketPlace/MarketPlace';
+import ThemeProvider from './contexts/ThemeProvider';
 
 const router = createBrowserRouter([
   {
@@ -111,8 +112,10 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
 
     <AuthProvider>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
       <ToastContainer />
+      </ThemeProvider>
     </AuthProvider>
 
   </StrictMode>

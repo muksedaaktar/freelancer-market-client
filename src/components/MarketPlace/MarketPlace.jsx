@@ -10,7 +10,7 @@ const Marketplace = () => {
 
     // FETCH DATA
     useEffect(() => {
-        setLoading(true);
+        // setLoading(true);
 
         fetch("http://localhost:3000/all-jobs")
             .then(res => res.json())
