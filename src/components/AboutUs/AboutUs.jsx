@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import aboutImg from "../../assets/about-f.avif";
+import { Link } from "react-router";
 
 const AboutUs = () => {
     return (
@@ -111,9 +112,9 @@ const AboutUs = () => {
 
                     {/* Button */}
                     <div className="pt-4">
-                        <button className="btn btn-primary px-8 rounded-xl text-lg shadow-lg hover:scale-105 transition duration-300">
+                        <Link to="/marketplace" className="btn btn-primary">
                             Explore Marketplace
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

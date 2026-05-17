@@ -29,6 +29,7 @@ import AcceptedTasks from './components/AcceptedTask/AcceptedTasks';
 import PrivateRoute from './routes/PrivateRoute';
 import AuthProvider from './contexts/AuthProvider';
 import NotFound from './components/NotFound/NotFound';
+import MarketPlace from './components/MarketPlace/MarketPlace';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
       {
         path : '*',
         element : <NotFound/>
+      },
+
+      {
+        path : 'marketplace',
+        element : <MarketPlace/>
       },
 
       // PRIVATE ROUTES
