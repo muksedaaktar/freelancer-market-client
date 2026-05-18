@@ -5,6 +5,8 @@ import { use, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../firebase/firebase.init";
 
 const Register = () => {
 
@@ -53,6 +55,14 @@ const Register = () => {
             .then(async result => {
 
                 console.log(result.user);
+                const currentUser = auth.currentUser;
+
+                await updateProfile(currentUser, {
+                    displayName: name,
+                    photoURL: photo
+                });
+
+                console.log("Firebase user:", currentUser);
 
                 const newUser = {
                     name,

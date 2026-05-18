@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/AuthContexts";
 import { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 
 const Login = () => {
 
@@ -34,12 +35,20 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
 
-        console.log(result.user);
+        const user = result.user;
 
-        toast.success("Login Successful 🎉");
+        if (!user.displayName) {
+          updateProfile(user, {
+            displayName: email.split("@")[0]
+          });
+        }
 
-        navigate(from);
-      })
+          console.log(result.user);
+
+          toast.success("Login Successful 🎉");
+
+          navigate(from);
+        })
       .catch((error) => {
 
         console.log(error);

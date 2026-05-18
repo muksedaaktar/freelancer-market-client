@@ -3,7 +3,6 @@ import {
     FaFacebook,
     FaYoutube,
     FaLinkedin,
-    FaTwitter,
     FaGithub,
 } from "react-icons/fa";
 import logoImg from "../../assets/logo-f.avif";
@@ -77,10 +76,21 @@ const Footer = () => {
                             className="hover:text-blue-700 transition">
                             <FaLinkedin />
                         </a>
-
-                        <a href="https://twitter.com" target="_blank" rel="noreferrer"
-                            className="hover:text-sky-500 transition">
-                            <FaTwitter />
+                        <a
+                            href="https://twitter.com"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-sky-500 transition"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M18.9 2H22l-6.8 7.8L23 22h-6.7l-5.3-6.7L5.2 22H2l7.3-8.4L1 2h6.8l4.8 6.1L18.9 2zm-1.2 18h1.9L7.2 3.9H5.2L17.7 20z" />
+                            </svg>
                         </a>
 
                         <a href="https://github.com" target="_blank" rel="noreferrer"
