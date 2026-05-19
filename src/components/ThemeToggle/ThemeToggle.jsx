@@ -9,10 +9,10 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="btn btn-circle btn-outline"
+            className="btn btn-circle btn-outline border-0"
             title="Toggle Theme"
         >
-            {theme === "light" ? <FaMoon /> : <FaSun />}
+            {theme === "light" ? <FaMoon className="text-yellow-200 text-xl" /> : <FaSun className="text-white text-xl" />}
         </button>
     );
 };
