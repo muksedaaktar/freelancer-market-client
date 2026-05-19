@@ -12,7 +12,7 @@ const AcceptedTasks = () => {
 
         if (!user?.email) return;
 
-        fetch(`http://localhost:3000/acceptedTasks?email=${user.email}`)
+        fetch(`https://freelancer-market-server.vercel.app/acceptedTasks?email=${user.email}`)
             .then(res => res.json())
             .then(data => setTasks(data));
 
@@ -23,7 +23,7 @@ const AcceptedTasks = () => {
 
         console.log("Clicked ID:", id);
 
-        fetch(`http://localhost:3000/acceptedTasks/${id}`, {
+        fetch(`https://freelancer-market-server.vercel.app/acceptedTasks/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

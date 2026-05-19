@@ -11,7 +11,7 @@ const JobDetails = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/jobs/${id}`)
+        fetch(`https://freelancer-market-server.vercel.app/jobs/${id}`)
             .then(res => res.json())
             .then(data => setJob(data))
             .catch(err => console.log(err));
@@ -46,7 +46,7 @@ const JobDetails = () => {
             acceptedBy: user.email
         };
 
-        fetch("http://localhost:3000/acceptedTasks", {
+        fetch("https://freelancer-market-server.vercel.app/acceptedTasks", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

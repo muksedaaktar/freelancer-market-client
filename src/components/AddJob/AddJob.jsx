@@ -36,7 +36,7 @@ const AddJob = () => {
             createdAt: new Date()
         };
 
-        fetch("http://localhost:3000/jobs", {
+        fetch("https://freelancer-market-server.vercel.app/jobs", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

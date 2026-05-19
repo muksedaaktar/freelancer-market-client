@@ -17,7 +17,7 @@ const UpdateJob = () => {
     // load existing data
     useEffect(() => {
 
-        fetch(`http://localhost:3000/jobs/${id}`)
+        fetch(`https://freelancer-market-server.vercel.app/jobs/${id}`)
             .then(res => res.json())
             .then(data => {
                 setFormData({
@@ -40,7 +40,7 @@ const UpdateJob = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:3000/jobs/${id}`, {
+        fetch(`https://freelancer-market-server.vercel.app/jobs/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

@@ -12,7 +12,7 @@ const Marketplace = () => {
     useEffect(() => {
         // setLoading(true);
 
-        fetch("http://localhost:3000/all-jobs")
+        fetch("https://freelancer-market-server.vercel.app/all-jobs")
             .then(res => res.json())
             .then(data => {
                 setJobs(data);

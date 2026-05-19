@@ -71,7 +71,7 @@ const Register = () => {
                 };
 
                 // Save to backend
-                const res = await fetch('http://localhost:3000/users', {
+                const res = await fetch('https://freelancer-market-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -107,7 +107,7 @@ const Register = () => {
                 }
 
                 // create user in the database
-                fetch('http://localhost:3000/users', {
+                fetch('https://freelancer-market-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

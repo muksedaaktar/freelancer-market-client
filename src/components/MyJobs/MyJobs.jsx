@@ -14,7 +14,7 @@ const MyJobs = () => {
 
         if (!user?.email) return;
 
-        fetch(`http://localhost:3000/jobs?email=${user.email}`)
+        fetch(`https://freelancer-market-server.vercel.app/jobs?email=${user.email}`)
             .then(res => res.json())
             .then(data => setJobs(data));
 
@@ -23,7 +23,7 @@ const MyJobs = () => {
     // delete job
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:3000/jobs/${id}`, {
+        fetch(`https://freelancer-market-server.vercel.app/jobs/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

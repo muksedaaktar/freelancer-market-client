@@ -12,7 +12,7 @@ const Home = () => {
 
     useEffect(() => {
 
-        fetch("http://localhost:3000/latest-jobs")
+        fetch("https://freelancer-market-server.vercel.app/latest-jobs")
             .then(res => res.json())
             .then(data => setLatestJobs(data));
 
